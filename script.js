@@ -20,14 +20,19 @@ console.log(hour);
 
 
 //  #5 save the event for the that timeblock. Aylay local session storage. // 04 - code drills. 04-signin-localstorage review local storage 
-$("button").on("click", function () {
+$(".button").on("click", function () {
     var inputInfo = event.target;
-    console.log(event.target)
-    var inputUser = $("#userinput").value()
+    console.log(inputInfo)
+    var inputUser = $(".hourInput").val()
+    console.log(inputUser)
     localStorage.setItem("plans", JSON.stringify(inputUser));
 
 }
 );
+
+
+// var lastUser = JSON.parse(localStorage.getItem("user"));
+
 
 //  #6 when page refresh the saved events persist. local will persist. 
 
