@@ -28,12 +28,12 @@ $(".buttonRead").on("click", function () {
 This allowed me to place an listener on an entire class and pull the associated data tag to use as a key for local storage. This was.. ehem... key because the data attribute allowed me to link with the time column. 
 
 
-### Link to deployed World Quiz game
-[World-Quiz]( https://crackedsnowboard.github.io/work-day-scheduler/)
+### Link to deployed Work Day Scheduler
+[Work-Day-Scheduler]( https://crackedsnowboard.github.io/work-day-scheduler/)
 
 
 #### Image of deployed web applicaton
-<img src="images/assets-plannerlook.png">
+<img src="assets/plannerlook.png">
 
 
 ###### Author Links
