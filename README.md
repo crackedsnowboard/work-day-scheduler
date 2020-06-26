@@ -33,7 +33,7 @@ This allowed me to place an listener on an entire class and pull the associated 
 
 
 #### Image of deployed web applicaton
-<img src="Assets/plannerlook.png"
+<img src="Assets/plannerlook.png">
 
 
 ###### Author Links
