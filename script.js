@@ -11,10 +11,22 @@ $(document).ready(function () {
 // #3 figure out how to shade time blocks based on past, present future. past grey, current hour red, future green
 
 function highlightTime () {
-var hour = moment().format("h");
+var hour = moment().format("H");
 console.log(hour);
+var hourInteger = parseInt(hour);
+console.log(hourInteger);
+
+// var hourBlock = parseInt($(this).attr("id"));
+var hourBlock = $(this).attr("id");
+var hourBlockInteger = parseInt(hourBlock);
+console.log(hourBlock);
+console.log(hourBlockInteger);
+
+
+// .addClass
 
 }
+
 
 // function; loop - set green; grey
 
@@ -22,11 +34,18 @@ console.log(hour);
 //  #4 - click time block can enter text event
 //  #5 save the event for the that timeblock. Aylay local session storage. // 04 - code drills. 04-signin-localstorage review local storage 
 $(".buttonRead").on("click", function () {
-    console.log(this);
-    var dataAttribInfo = $(this).attr("data-button")
+    event.preventDefault()
+    console.log(this); 
+
+    var dataAttribInfo = $(this).attr("data-button");
     console.log(dataAttribInfo);
-    var inputUser = $(".hourInput").val()
-    console.log(inputUser)
+    
+    var inputUser = $(this).parent().parent().find(".hourInput");
+    console.log(inputUser);                   
+
+    var inputAttribInfo = $(this).attr("data-button");
+    console.log(inputAttribInfo.val())
+
     localStorage.setItem("data", JSON.stringify(dataAttribInfo))
     localStorage.setItem("plans", JSON.stringify(inputUser));
 }
@@ -37,3 +56,4 @@ $(".buttonRead").on("click", function () {
 
 //  #6 when page refresh the saved events persist. local will persist. 
 
+highlightTime();
