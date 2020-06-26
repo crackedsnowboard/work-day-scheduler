@@ -1,59 +1,53 @@
 $(document).ready(function () {
     // #1 Display current date
     $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
-
 })
 
-// #2 figure out Present timeblocks in html via js
+localStorage.getItem(JSON.parse("9"))
+
+var inputRow = 
+JSON.parse(localStorage.getItem(10));
 
 
-
-// #3 figure out how to shade time blocks based on past, present future. past grey, current hour red, future green
-
-function highlightTime () {
-var hour = moment().format("H");
-console.log(hour);
-var hourInteger = parseInt(hour);
-console.log(hourInteger);
-
-// var hourBlock = parseInt($(this).attr("id"));
-var hourBlock = $(this).attr("id");
-var hourBlockInteger = parseInt(hourBlock);
-console.log(hourBlock);
-console.log(hourBlockInteger);
+for (var i = 9; i < 19; i++) {
+JSON.parse(localStorage.getItem(i));
+};
 
 
-// .addClass
-
-}
-
-
-// function; loop - set green; grey
-
-
-//  #4 - click time block can enter text event
-//  #5 save the event for the that timeblock. Aylay local session storage. // 04 - code drills. 04-signin-localstorage review local storage 
-$(".buttonRead").on("click", function () {
-    event.preventDefault()
-    console.log(this); 
-
-    var dataAttribInfo = $(this).attr("data-button");
-    console.log(dataAttribInfo);
+function highlightTime() {
+    var hour = parseInt(moment().format("H"));
+    console.log(hour);
     
-    var inputUser = $(this).parent().parent().find(".hourInput");
-    console.log(inputUser);                   
+    $(".time-block").each(function () {
 
-    var inputAttribInfo = $(this).attr("data-button");
-    console.log(inputAttribInfo.val())
-
-    localStorage.setItem("data", JSON.stringify(dataAttribInfo))
-    localStorage.setItem("plans", JSON.stringify(inputUser));
+        // var hourBlock = parseInt($(this).attr("id"));
+        var hourBlock = parseInt($(".buttonRead").attr("data-button"));
+        console.log(hourBlock);
+        
+        if (hourBlock < hour) {
+            $(this).addClass("past");
+        }
+        else if (hourBlock === hour) {
+            $(this).removeClass("past");
+            $(this).addClass('present');
+        }
+        else {
+            $(this).removeClass("past");
+            $(this).removeClass("past");
+            $(this).addClass("future");
+        }
+    });
 }
-);
-
-// var lastUser = JSON.parse(localStorage.getItem("user"));
 
 
-//  #6 when page refresh the saved events persist. local will persist. 
+$(".buttonRead").on("click", function () {
+        event.preventDefault()
+        var dataAttribInfo = $(this).attr("data-button");
+        var inputUser = $(`#${dataAttribInfo}`).val()
+        localStorage.setItem(dataAttribInfo, JSON.stringify(inputUser))
+    }
+    );
 
-highlightTime();
+    // var lastUser = JSON.parse(localStorage.getItem("user")); 
+
+    highlightTime();
